@@ -1,0 +1,7 @@
+{
+	"UserDB": "alex",
+	"PasswordDB": "alfabeta",
+	"Server": "db-serv",
+	"Port": "3306",
+	"Database": "car"
+}

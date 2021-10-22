@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+       
+
+        db:
+                image: localhost:5000/db:latest
+                ports:
+                        - "3301:3301"
+                volumes:
+                        - "car-db:/var/lib/mysql"
+                networks:
+                        - service-net
+                container_name: db-serv
+
+        information:
+                image: localhost:5000/inf-image:latest
+                ports:
+                        - "8079:8081"
+                networks:
+                        - service-net
+                container_name: inf-serv
+
+
+        registration:
+                image: localhost:5000/reg-image:latest
+                ports:
+                        - "8080:8080"
+                networks:
+                        - service-net
+                container_name: reg-serv
+        nginx:
+                image: localhost:5000/nginx-serv:latest
+                ports:
+                        - "80:80"
+                networks:
+                        - service-net
+                container_name: nginx-serv
+
+
+volumes:
+        car-db: 
+networks:
+        service-net:
